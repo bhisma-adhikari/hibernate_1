@@ -9,21 +9,21 @@ import com.code.entity.Category;
 public class AddCategory {
 
 	public static void main(String[] args) {
-		// create session factory 
+		// create session factory
 		SessionFactory factory = new Configuration()
 				.configure("hibernate.cfg.xml")
 				.addAnnotatedClass(Category.class)
 				.buildSessionFactory();
-		
+
 		Session session = factory.getCurrentSession();
-		
+
 		try {
-			// transaction object 
+			// transaction object
 			session.beginTransaction();
-			Category catobj = new Category(1,  "test"); 
-			session.save(catobj); 
+			Category catobj = new Category(2, "test2");
+			session.save(catobj);
 			session.getTransaction().commit();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
